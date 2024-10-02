@@ -1,6 +1,6 @@
 // trying rotation Cipher
 
-console.log("halllo welt");
+console.log("halllo welt ");
 
 /* 
 
@@ -11,18 +11,29 @@ Cipher: nopqrstuvwxyzabcdefghijklm
 
 const rotate1 = (item, number) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const index = alphabet.indexOf(item) + number;
 
-  console.log(item, alphabet[index]);
+  if (number > 25) {
+    const indexNumb = number - 26;
+    const index = alphabet.indexOf(item) + indexNumb;
+    console.log(item, alphabet[index]);
+  } else {
+    const index = alphabet.indexOf(item) + number;
+    console.log(item, alphabet[index]);
+  }
 };
 
-rotate1("x", 2);
+rotate1("dog");
 
-// with words
-const rotate2 = (item, number) => {
+// with words , working with strings intead of arr
+const rotate2 = (item = "", number) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const arrAlpha = alphabet.split("");
-  const newItem = item.split("");
+  const encryptedWord = "";
+
+  for (i = 0; i < item.length; i++) {
+    const index = alphabet.indexOf(item[i]) + number;
+    console.log(index);
+  }
+  console.log(item);
 };
 
-rotate2("dog", 1);
+rotate2("cat", 1);
