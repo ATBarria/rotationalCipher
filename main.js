@@ -9,31 +9,46 @@ Cipher: nopqrstuvwxyzabcdefghijklm
 
 */
 
-const rotate1 = (item, number) => {
+const rotate = (item, number) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  if (number > 25) {
-    const indexNumb = number - 26;
-    const index = alphabet.indexOf(item) + indexNumb;
-    console.log(item, alphabet[index]);
-  } else {
-    const index = alphabet.indexOf(item) + number;
-    console.log(item, alphabet[index]);
-  }
+  const index = (alphabet.indexOf(item) + number) % 26;
+  console.log(item, alphabet[index]);
 };
 
-rotate1("dog");
+rotate("a", 2);
 
 // with words , working with strings intead of arr
 const rotate2 = (item = "", number) => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const encryptedWord = "";
+  let encryptedWord = "";
 
-  for (i = 0; i < item.length; i++) {
-    const index = alphabet.indexOf(item[i]) + number;
-    console.log(index);
+  for (const char of item) {
+    console.log(char);
+
+    encryptedWord += alphabet[index];
   }
-  console.log(item);
+  console.log(encryptedWord);
+  return encryptedWord;
 };
 
-rotate2("cat", 1);
+rotate2("CAT", 5);
+
+/*  this work now but not before in exercism because the i wasnt defined!!!!
+
+const rotate2 = (item = "", number) => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let encryptedWord = "";
+
+  for (let i = 0; i < item.length; i++) {
+    const index = (alphabet.indexOf(item[i]) + number) % 26;
+
+    encryptedWord += alphabet[index];
+  }
+  
+  return encryptedWord;
+};
+
+rotate2("cat", 25);
+
+*/
